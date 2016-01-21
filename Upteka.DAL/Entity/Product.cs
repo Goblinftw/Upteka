@@ -7,5 +7,7 @@
         public string Name { get; set; }
 
         public string BarCode { get; set; }
+
+        public int InStock { get; set; }
     }
 }
