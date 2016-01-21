@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using Upteka.BLL.DTOObjects;
 using Upteka.BLL.Services.Interfaces;
 
 namespace Upteka.Controllers
@@ -26,7 +29,7 @@ namespace Upteka.Controllers
         // GET: Product/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            return View(m_service.Find(id));
         }
 
         // GET: Product/Create
@@ -37,33 +40,29 @@ namespace Upteka.Controllers
 
         // POST: Product/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(ProductDTO item)
         {
-            try
-            {
-                // TODO: Add insert logic here
+            m_service.Add(item);
 
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
+            return RedirectToAction("Index");
         }
 
         // GET: Product/Edit/5
-        public ActionResult Edit(int id)
+        public ActionResult Edit(int? id)
         {
-            return View();
+            if (id == null)
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            var p = m_service.Find((int)id);
+            return View(p);
         }
 
         // POST: Product/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(int id, ProductDTO product)
         {
             try
             {
-                // TODO: Add update logic here
+                m_service.Update(product);
 
                 return RedirectToAction("Index");
             }
@@ -74,9 +73,14 @@ namespace Upteka.Controllers
         }
 
         // GET: Product/Delete/5
-        public ActionResult Delete(int id)
+        public ActionResult Delete(int? id)
         {
-            return View();
+            if (id == null)
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            var product = m_service.Find((int)id);
+            if (product != null)
+                return PartialView("Delete", product);
+            return View("Index");
         }
 
         // POST: Product/Delete/5
@@ -85,7 +89,7 @@ namespace Upteka.Controllers
         {
             try
             {
-                // TODO: Add delete logic here
+                m_service.Delete(id);
 
                 return RedirectToAction("Index");
             }

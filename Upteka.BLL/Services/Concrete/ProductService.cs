@@ -27,19 +27,27 @@ namespace Upteka.BLL.Services.Concrete
             return Mapper.Map<ProductDTO>(m_context.Set<Product>().Find(id));
         }
 
-        public int Add(ProductDTO product)
+        public void Add(ProductDTO product)
         {
-            throw new NotImplementedException();
+            m_context.Set<Product>().Add(Mapper.Map<Product>(product));
+            m_context.SaveChanges();
         }
 
         public void Update(ProductDTO product)
         {
-            throw new NotImplementedException();
+            Product entity = m_context.Set<Product>().Find(product.Id);
+            if (entity == null)
+                throw new InvalidOperationException("Entity not found during Edit operation");
+
+            m_context.Entry(entity).CurrentValues.SetValues(product);
+            m_context.SaveChanges();
         }
 
-        public void Delete(ProductDTO product)
+        public void Delete(int id)
         {
-            throw new NotImplementedException();
+            Product entity = m_context.Set<Product>().Find(id);
+            m_context.Set<Product>().Remove(entity);
+            m_context.SaveChanges();
         }
     }
 }

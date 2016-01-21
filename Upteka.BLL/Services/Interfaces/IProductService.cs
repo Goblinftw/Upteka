@@ -15,10 +15,10 @@ namespace Upteka.BLL.Services.Interfaces
 
         ProductDTO Find(int id);
 
-        int Add(ProductDTO product);
+        void Add(ProductDTO product);
 
         void Update(ProductDTO product);
 
-        void Delete(ProductDTO product);
+        void Delete(int id);
     }
 }
