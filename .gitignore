@@ -4,7 +4,13 @@ ehthumbs.db
 
 # Folder config file
 Desktop.ini
-
+packages/
+/Upteka.BLL/obj
+/Upteka.DAL/obj
+/Upteka.UI/obj
+/Upteka.BLL/bin
+/Upteka.DAL/bin
+/Upteka.UI/bin
 # Recycle Bin used on file shares
 $RECYCLE.BIN/
 

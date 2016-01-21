@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Upteka.DAL", "Upteka.DAL\Upteka.DAL.csproj", "{AF62D5C3-5109-4BF6-9BD3-848D3E26C83E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Upteka.BLL", "Upteka.BLL\Upteka.BLL.csproj", "{371A03A7-EF34-4CA5-87E8-D0724CC7444B}"
+	ProjectSection(ProjectDependencies) = postProject
+		{AF62D5C3-5109-4BF6-9BD3-848D3E26C83E} = {AF62D5C3-5109-4BF6-9BD3-848D3E26C83E}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Upteka.UI", "Upteka.UI\Upteka.UI.csproj", "{0299BD1C-6227-4E0E-97BC-2699BB684407}"
+	ProjectSection(ProjectDependencies) = postProject
+		{371A03A7-EF34-4CA5-87E8-D0724CC7444B} = {371A03A7-EF34-4CA5-87E8-D0724CC7444B}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AF62D5C3-5109-4BF6-9BD3-848D3E26C83E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AF62D5C3-5109-4BF6-9BD3-848D3E26C83E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AF62D5C3-5109-4BF6-9BD3-848D3E26C83E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AF62D5C3-5109-4BF6-9BD3-848D3E26C83E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{371A03A7-EF34-4CA5-87E8-D0724CC7444B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{371A03A7-EF34-4CA5-87E8-D0724CC7444B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{371A03A7-EF34-4CA5-87E8-D0724CC7444B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{371A03A7-EF34-4CA5-87E8-D0724CC7444B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0299BD1C-6227-4E0E-97BC-2699BB684407}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0299BD1C-6227-4E0E-97BC-2699BB684407}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0299BD1C-6227-4E0E-97BC-2699BB684407}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0299BD1C-6227-4E0E-97BC-2699BB684407}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
