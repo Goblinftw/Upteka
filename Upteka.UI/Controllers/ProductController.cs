@@ -42,6 +42,8 @@ namespace Upteka.Controllers
         [HttpPost]
         public ActionResult Create(ProductDTO item)
         {
+            if (!ModelState.IsValid) return View("Create");
+
             m_service.Add(item);
 
             return RedirectToAction("Index");
@@ -60,6 +62,7 @@ namespace Upteka.Controllers
         [HttpPost]
         public ActionResult Edit(int id, ProductDTO product)
         {
+            if (!ModelState.IsValid) return View("Edit");
             try
             {
                 m_service.Update(product);
@@ -71,33 +74,16 @@ namespace Upteka.Controllers
                 return View();
             }
         }
-
-        // GET: Product/Delete/5
-        public ActionResult Delete(int? id)
-        {
-            if (id == null)
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            var product = m_service.Find((int)id);
-            if (product != null)
-                return PartialView("Delete", product);
-            return View("Index");
-        }
-
-        // POST: Product/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
-        {
-            try
-            {
-                m_service.Delete(id);
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
         
+        [HttpPost]
+        public JsonResult Delete(int? id)
+        {
+                if (id != null)
+                {
+                m_service.Delete((int)id); 
+                return Json("OK");
+                }
+            return Json("incorrect input");
+        }
     }
 }
