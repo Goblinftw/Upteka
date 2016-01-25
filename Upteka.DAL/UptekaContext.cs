@@ -15,6 +15,6 @@ namespace Upteka.DAL
         {
         }
 
-        public DbSet<Product> Products { get; set; }
+        public virtual DbSet<Product> Products { get; set; }
     }
 }

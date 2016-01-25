@@ -8,9 +8,12 @@ packages/
 /Upteka.BLL/obj
 /Upteka.DAL/obj
 /Upteka.UI/obj
+/Upteka.Tests/obj
 /Upteka.BLL/bin
 /Upteka.DAL/bin
 /Upteka.UI/bin
+/Upteka.Tests/bin
+/TestResults
 # Recycle Bin used on file shares
 $RECYCLE.BIN/
 
